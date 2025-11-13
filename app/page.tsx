@@ -101,7 +101,7 @@ export default function HomePage() {
             </p>
             <p>
               As cartas são jogadas por cor ou categoria, e as
-              cartas pretas são curingas, permitindo mudar a cor e
+              cartas pretas são coringas, permitindo mudar a cor e
               fazer uma pergunta extra para a próxima pessoa.
             </p>
             <p>
