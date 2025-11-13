@@ -4,13 +4,11 @@ import { galeriaImagens } from './data' // Importa suas imagens da galeria
 
 export default function HomePage() {
   return (
-    // ESTE É O NOVO CONTÊINER CENTRALIZADO PARA TODO O CONTEÚDO DA PÁGINA
-    // Ele traz de volta o `max-w-md`, `mx-auto` e `px-4` para a maior parte do conteúdo
-    // Mas a galeria ficará FORA dele para poder vazar!
+    // O 'items-center' principal ainda centraliza o layout em bloco
     <div className="flex flex-col items-center">
       
-      {/* 1. Logo - Centralizada dentro do fluxo normal de conteúdo */}
-      <div className="w-full max-w-md mx-auto px-4 my-8 flex justify-center"> 
+      {/* 1. Logo - (como estava) */}
+      <div className="w-full max-w-xl mx-auto px-4 my-8 flex justify-center"> 
         <Image
           src="/images/CAIXA.png" // Ajuste o caminho!
           width={188}
@@ -20,18 +18,8 @@ export default function HomePage() {
         />
       </div>
 
-      {/* 2. Galeria de Imagens Horizontais (Vazadas)
-          ESTE BLOCO INTEIRO É RESPONSÁVEL POR VAZAR.
-          Ele está fora do contêiner `max-w-md` acima e abaixo,
-          permitindo que ele ocupe a largura total da tela.
-      */}
-      <div className="w-full py-4 my-4 -mx-4 md:-mx-6 lg:-mx-8"> {/* Ajusta margem negativa para vazar */}
-        {/* flex -> Coloca os itens um ao lado do outro
-          overflow-x-auto -> Habilita a rolagem horizontal
-          space-x-4 -> Adiciona espaço entre as imagens
-          px-4 -> Padding lateral para as imagens não colarem nas bordas da tela
-          scrollbar-hide -> (Opcional) Esconde a barra de rolagem (requer plugin)
-        */}
+      {/* 2. Galeria de Imagens Horizontais (Vazadas) - (como estava) */}
+      <div className="w-full py-4 my-4 -mx-4 md:-mx-6 lg:-mx-8">
         <div className="flex overflow-x-auto space-x-4 px-4 scrollbar-hide">
           
           {galeriaImagens.map((imagem) => (
@@ -49,24 +37,24 @@ export default function HomePage() {
       </div>
       {/* Fim da Galeria */}
 
-      {/* NOVO CONTÊINER PARA O RESTO DO CONTEÚDO (TEXTO E BOTÃO)
-          Este div traz de volta a centralização e o padding para o texto,
-          garantindo que ele não fique "vazado".
-      */}
-      <div className="w-full max-w-md mx-auto px-4 text-center">
+      {/* Container do texto (max-w-xl) */}
+      <div className="w-full max-w-xl mx-auto px-4">
 
         {/* 3. Seção Propósito */}
         <section id="proposito" className="w-full my-6 text-left">
-          <h2 className="text-3xl font-extrabold mb-4 text-center">
-            nosso propósito #
+          {/* Título: text-3xl (Maior) */}
+          <h2 className="text-3xl font-extrabold mb-4">
+            nosso propósito 
           </h2>
           
-          <p className="text-lg italic mb-6 text-center">
+          {/* Intro: text-lg (Maior) e leading-snug (Linha justa) */}
+          <p className="text-base italic mb-6 leading-snug">
             é mais do que um jogo: é um convite para desacelerar,
             conversar e criar conexões
           </p>
 
-          <div className="text-base space-y-4">
+          {/* Corpo: text-base (Maior) e space-y-2 (Parágrafos juntos) e leading-snug (Linha justa) */}
+          <div className="text-base space-y-2 leading-snug">
             <p>
               Na Suécia, o fika é uma tradição cultural que
               representa uma pausa no dia para relaxar,
@@ -88,11 +76,13 @@ export default function HomePage() {
 
         {/* 4. Seção Como Jogar */}
         <section id="como-jogar" className="w-full my-6 text-left">
-          <h2 className="text-3xl font-extrabold mb-4 text-center">
-            como jogar #
+          {/* Título: text-3xl (Maior) */}
+          <h2 className="text-3xl font-extrabold mb-4">
+            como jogar 
           </h2>
           
-          <div className="text-base space-y-4">
+          {/* Corpo: text-base (Maior) e space-y-2 (Parágrafos juntos) e leading-snug (Linha justa) */}
+          <div className="text-base space-y-2 leading-snug">
             <p>
               Inspirado em clássicos como o UNO, o FIKA é um jogo
               de cartas com quatro categorias:
@@ -124,11 +114,13 @@ export default function HomePage() {
 
         {/* 5. Seção Onde Encontrar */}
         <section id="onde-encontrar" className="w-full my-6 text-left">
-          <h2 className="text-3xl font-extrabold mb-4 text-center">
-            onde encontrar #
+          {/* Título: text-3xl (Maior) */}
+          <h2 className="text-3xl font-extrabold mb-4">
+            onde encontrar 
           </h2>
           
-          <div className="text-base space-y-4">
+          {/* Corpo: text-base (Maior) e space-y-2 (Parágrafos juntos) e leading-snug (Linha justa) */}
+          <div className="text-base space-y-2 leading-snug">
             <p>
               O FIKA é uma criação do Projeto Anima, iniciativa
               voltada à promoção de bem-estar e
@@ -146,24 +138,31 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 6. Botão de Contato */}
-<a
-          href="#contato" 
-          className="mt-8 mb-12 inline-block px-10 py-3 
-            text-2xl font-extrabold rounded-full shadow-lg 
-            transition-transform hover:scale-105"
-          
-          // AQUI ESTÁ A MUDANÇA MÁGICA
-          style={{
-            backgroundColor: '#cc3c46', // O seu fika-vermelho
-            color: '#fdf5e4',           // O seu fika-bege
-            textDecoration: 'none'       // Bônus: remove o sublinhado do link
-          }}
-        >
-          entre em contato
-        </a>
+{/* 6. Botão de Contato (Centralizado) */}
+        <div className="w-full flex justify-center">
+          <a
+            // 1. ATUALIZE O LINK AQUI
+            href="https://www.instagram.com/idososanima?igsh=NHlpcW1vcnRyNGo1" 
+            
+            // 2. ADICIONE ESSAS DUAS PROPRIEDADES para abrir em nova aba
+            target="_blank"
+            rel="noopener noreferrer"
+            
+            className="mt-8 mb-12 inline-block px-10 py-3 
+              text-2xl font-extrabold rounded-full shadow-lg 
+              transition-transform hover:scale-105"
+            
+            style={{
+              backgroundColor: '#cc3c46', // O seu fika-vermelho
+              color: '#fdf5e4',           // O seu fika-bege
+              textDecoration: 'none'
+            }}
+          >
+            entre em contato
+          </a>
+        </div>
 
-      </div> {/* Fim do div de centralização do texto */}
+      </div> {/* Fim do div de centralização do texto 'max-w-xl' */}
 
     </div>
   )

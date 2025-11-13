@@ -31,7 +31,6 @@
   .text-fika-azul a {
     color: inherit; /* Força os filhos a herdarem a cor */
   }
-  /* FIM DA NOVA REGRA FORÇADA */
 }
 
 :root {

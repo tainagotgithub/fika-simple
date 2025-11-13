@@ -127,20 +127,20 @@ export const EMAIL = 'your@email.com'
 // Em: app/data.ts
 
 export const galeriaImagens = [
-  {
-    id: 1,
-    src: '/images/banner_cartas.jpeg', // Seu banner original
-    alt: 'Banner de cartas do jogo Fika',
-    width: 600, // Aumentado!
-    height: 310, // Proporcionalmente aumentado (ajuste se necessário)
-  },
-  {
-    id: 2,
-    src: '/images/IMG_1.jpeg', // Sua nova imagem
-    alt: 'Pessoas jogando Fika',
-    width: 600, // Aumentado!
-    height: 310,
-  },
+  // {
+  //   id: 1,
+  //   src: '/images/banner_cartas.jpeg', // Seu banner original
+  //   alt: 'Banner de cartas do jogo Fika',
+  //   width: 600, // Aumentado!
+  //   height: 310, // Proporcionalmente aumentado (ajuste se necessário)
+  // },
+  // {
+  //   id: 2,
+  //   src: '/images/IMG_1.jpeg', // Sua nova imagem
+  //   alt: 'Pessoas jogando Fika',
+  //   width: 600, // Aumentado!
+  //   height: 310,
+  // },
   {
     id: 3,
     src: '/images/IMG_0023.jpg', // Sua nova imagem
@@ -155,5 +155,19 @@ export const galeriaImagens = [
     width: 600, // Aumentado!
     height: 310,
   },
+  {
+    id: 5,
+    src: '/images/IMG_0072.jpg', // Sua nova imagem
+    alt: 'Detalhe das cartas do jogo',
+    width: 600, // Aumentado!
+    height: 310,
+  },
+  // {
+  //   id: 6,
+  //   src: '/images/IMG_0065.jpg', // Sua nova imagem
+  //   alt: 'Detalhe das cartas do jogo',
+  //   width: 600, // Aumentado!
+  //   height: 310,
+  // },
   // Adicione mais imagens aqui com as novas larguras
 ];
