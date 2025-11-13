@@ -1,15 +1,7 @@
 @import 'tailwindcss';
-@plugin '@tailwindcss/typography';
+/* @plugin '@tailwindcss/typography'; */ /* <-- Correto, continue deixando comentado/removido */
 @custom-variant dark (&:is(.dark *));
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -18,6 +10,28 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+
+  /* INÍCIO DA NOVA REGRA FORÇADA:
+    Isso diz ao CSS: "Quando você vir a classe .text-fika-azul,
+    force todos os elementos de texto comuns dentro dela a herdarem 
+    a cor do pai (que será o nosso azul)." 
+  */
+  .text-fika-azul {
+    color: #023274; /* Define a cor base para o container */
+  }
+
+  .text-fika-azul h1,
+  .text-fika-azul h2,
+  .text-fika-azul h3,
+  .text-fika-azul h4,
+  .text-fika-azul h5,
+  .text-fika-azul h6,
+  .text-fika-azul p,
+  .text-fika-azul li,
+  .text-fika-azul a {
+    color: inherit; /* Força os filhos a herdarem a cor */
+  }
+  /* FIM DA NOVA REGRA FORÇADA */
 }
 
 :root {

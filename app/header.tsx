@@ -1,24 +1,40 @@
-'use client'
-import { TextEffect } from '@/components/ui/text-effect'
+// Em: app/header.tsx
 import Link from 'next/link'
 
 export function Header() {
   return (
-    <header className="mb-8 flex items-center justify-between">
-      <div>
-        <Link href="/" className="font-medium text-black dark:text-white">
-          Julien Nim
-        </Link>
-        <TextEffect
-          as="p"
-          preset="fade"
-          per="char"
-          className="text-zinc-600 dark:text-zinc-500"
-          delay={0.5}
-        >
-          Design Engineer
-        </TextEffect>
-      </div>
+    // Header "fino" (py-4 = padding vertical de 1rem)
+    // w-full garante que ele ocupe a largura do container
+    <header className="w-full py-4">
+      <nav>
+        {/* Usamos as cores e fontes que você já configurou! */}
+        <ul className="flex flex-wrap justify-center space-x-2 text-sm font-bold text-fika-azul">
+          <li>
+            <Link 
+              href="#proposito" 
+              className="p-2 rounded hover:bg-fika-amarelo/50 transition-colors"
+            >
+              . propósito .
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="#como-jogar" 
+              className="p-2 rounded hover:bg-fika-amarelo/50 transition-colors"
+            >
+              . como jogar .
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="#onde-encontrar" 
+              className="p-2 rounded hover:bg-fika-amarelo/50 transition-colors"
+            >
+              . onde encontrar .
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </header>
   )
 }
